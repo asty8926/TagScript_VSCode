@@ -1,0 +1,513 @@
+{
+	// Place your Tags VSCode workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	/* ----- User Snippets and Tips taken from CBH's "tips" tag ----- */
+	"Random Embed Color": {
+		"prefix": "randemc",
+		"body": ["{=($i):#:A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9}",
+		"{embed(color):#{{$i}}{{$i}}{{$i}}{{$i}}{{$i}}{{$i}}}"]
+	},
+
+	"Random Hex Color": {
+		"prefix": "randhex",
+		"body": ["{=($i):#:A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9}",
+		"{=($variable):{{$i}}{{$i}}{{$i}}{{$i}}{{$i}}{{$i}}}"]
+	},
+
+	"Display time in a specific timezone": {
+		"prefix": "timezone",
+		"body": ["{=(unix):%s}",
+			"{=(offset):${1:offset from UTC (example: -2 or 5)}}",
+			"{=(hins):3600}",
+			"{=(${2:output}):{strf({m:trunc({unix}+({hins}*{offset}))}):${3:%-I:%M %p}}}"]
+	},
+
+	"Blank variable (conditional blocks)": {
+		"prefix": "blank",
+		"body": ["{=():}",
+		"{{if(${1:boolean expression}):${2:block}}}"]
+	},
+
+	"Check if a variable is a number": {
+		"prefix": "isnum",
+		"body": "{if({in({m:sgn({${1:variable}})}):-1 0 1}==true):${2:output}}"
+	},
+
+	"Check the length of a variable": {
+		"prefix": "length",
+		"body": "{=($length):{index(&%$):{$variable} &%$}}"
+	},
+
+	"Per-User Cooldown": {
+		"prefix": "cooldown",
+		"body": ["{=(cdRole):$RoleID}",
+			"{=(cdTime):$duration}",
+			"{blacklist(You need to wait {cdTime} before using the command again.):{cdRole}}",
+			"{override}{silence}",
+			"{c:temprole {user(id)} {cdTime} {cdRole}}"]
+	},
+
+	"Capitalize the first letter of each word in variable": {
+		"prefix": "capitalize",
+		"body": ["{=(cap):{replace( z, Z):{replace( y, Y):{replace( x, X):{replace( w, W):{replace( v, V):{replace( u, U):{replace( t, T):{replace( s, S):{replace( r, R):{replace( q, Q):{replace( p, P):{replace( o, O):{replace( n, N):{replace( m, M):{replace( l, L):{replace( k, K):{replace( j, J):{replace( i, I):{replace( h, H):{replace( g, G):{replace( f, F):{replace( e, E):{replace( d, D):{replace( c, C):{replace( b, B):{replace( a, A): {$variable}}}}}}}}}}}}}}}}}}}}}}}}}}}}"]
+	},
+
+	"The \"Switch\" method": {
+		"prefix": "switch",
+		"body": ["{=(${1:l1}):{lower:{1}}}",
+			"{=({${1:l1}}):${2:Error message here.}}",
+			"{=($3):${4:output for first variable}}",
+			"{=($5):${6:output for second variable}}",
+			"{=($7):${8:output for third variable}}",
+			"{{${1:l1}}}"]
+	},
+
+	"Count characters": {
+		"prefix": "count",
+		"body": ["{=(charactertocount):${1:character}} {=(comment):can't be a comma, parentheses or curly brackets}",
+			"{=(varlength):{index($%&):{${2:variable}} $%&}}",
+			"{=(newvarlength):{index($%&):{replace({charactertocount},. .):{${2:variable}} $%&}}",
+			"{=(charactercount):{m:trunc({newvarlength}-{varlength})}}",
+			"{=(output):There are {charactercount} `{charactertocount}` in the variable.}",
+			"{output}"]
+	},
+
+	"Add a role to a user": {
+		"prefix": "cradd",
+		"body": "{c:role add {${1:user}(id)} ${2:RoleID}} {override}"
+	},
+
+	"Set a variable to lowercase easily": {
+		"prefix": "lowervar",
+		"body": "{=(${1:l1}):{lower:${2:variable}}"
+	},
+	"Set a variable to uppercase easily": {
+		"prefix": "uppervar",
+		"body": "{=(${1:u1}):{upper:${2:variable}}"
+	},
+
+	/* ===== TAGSCRIPT ADVANCED USAGE BLOCKS (FROM DOCS) ===== */
+
+	/* ----- Default Variables -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#default-variables */
+
+	"unix (Default Variables)": {
+		"prefix": "unix",
+		"body": "{unix}",
+		"description": "Current Unix time, useful for math blocks. This only works in Tags."
+	},
+
+	"uses (Default Variables)": {
+		"prefix": "uses",
+		"body": "{uses}",
+		"description": "The number of times the tag has been used. This only works in Tags."
+	},
+
+	"mention (Default Variables)": {
+		"prefix": "mention",
+		"body": "{mention}",
+		"description": "Mentions the user of the tag."
+	},
+
+	"args (Default Variables)": {
+		"prefix": "args",
+		"body": "{args(${1:number})}",
+		"description": "Return a specific argument number quickly.\n Example: {args(2)}"
+	},
+
+	/* ----- Discord Object Properties -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#discord-object-properties */
+
+	"user object (Discord Object Properties)": {
+		"prefix": "user",
+		"body": "{user($property)}",
+		"description": "User object. Available properties:\navatar, icon, id, mention, created_at, joined_at, color, name, proper, roleids, position"
+	},
+	"target object (Discord Object Properties)": {
+		"prefix": "target",
+		"body": "{target($property)}",
+		"description": "Target object. Available properties:\navatar, icon, id, mention, created_at, joined_at, color, name, proper, roleids, position"
+	},
+	"server object (Discord Object Properties)": {
+		"prefix": "server",
+		"body": "{server($property)}",
+		"description": "Server object. Available properties:\nicon, id, owner, random, members, bots, roles, channels, created_at"
+	},
+	"channel object (Discord Object Properties)": {
+		"prefix": "channel",
+		"body": "{channel($property)}",
+		"description": "Channel object. Available properties:\nid, topic, slowmode, position, mention"
+	},
+
+	/* ----- Meta Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#meta-blocks */
+
+		/* ----- Action Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#action-blocks */
+
+		"delete block (Action Blocks)": {
+			"prefix": "delete",
+			"body": "{delete}",
+			"description": "Deletes the message or invocation that triggered the tag.\nAlias: {del}"
+		},
+
+		"silence block (Action Blocks)": {
+			"prefix": "silence",
+			"body": "{silence}",
+			"description": "Silences the usual output of any command being used in a command block.\nAlias: {silent}"
+		},
+	
+		"override block (Action Blocks)": {
+			"prefix": "override",
+			"body": "{override}",
+			"description": "This instructs the tag to act as if the tag user has the modrole.\nCarl-bot still respects role hierarchy though.\nFor a tag creator to add this they must have Manage Server permissions or the modrole."
+		},
+	
+		/* ----- Redirection Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#redirection-blocks */
+
+		"dm block (Redirection Blocks)": {
+			"prefix": "dm",
+			"body": "{dm}",
+			"description": "Redirects output as a direct message to the tag user.\nTags cannot be used to direct message mentioned users."
+		},
+		
+		"redirect block (Redirection Blocks)": {
+			"prefix": "redirect",
+			"body": "{redirect:${1:channelID}}",
+			"description": "Redirects output to the specified channel.\nThe tag's creator needs to have send message permissions in the pointed channel."
+		},
+
+		/* ----- Use Limiting Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#use-limiting-blocks */
+
+		"require block (Use Limiting Blocks)": {
+			"prefix": "require",
+			"body": "{require(${1:Error message}):${2:channel or role IDs separated by a comma}}",
+			"description": "Limits the tag to executing ONLY when the user has a role listed or when used in a channel listed."
+		},
+		"blacklist block (Use Limiting Blocks)": {
+			"prefix": "blacklist",
+			"body": "{blacklist(${1:Error message}):${2:channel or role IDs separated by a comma}}",
+			"description": "Prevents the tag from executing when the user has a role listed or when used in a channel listed."
+		},
+
+		/* ----- React Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#react-blocks */
+
+		"react block (Meta Blocks)": {
+			"prefix": "react",
+			"body": "{react: ${1:emoji (ID format if custom)}}",
+			"description": "Reacts with the emoji(s) listed to the tag's output message.\nCannot react to command block output messages.\nCustom emoji format: <(a):name:ID>\nUse a space to separate multiple emojis."
+		},
+		"reactu block (Meta Blocks)": {
+			"prefix": "reactu",
+			"body": "{reactu: ${1:emoji (ID format if custom)}}",
+			"description": "Reacts (upwards) with the emoji(s) listed to the tag's invocation or to the message containing the trigger word.\nCustom emoji format: <(a):name:ID>\nUse a space to separate multiple emojis."
+		},
+
+	/* ----- Command Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#command-blocks */
+
+	"command block": {
+		"prefix": "cmd",
+		"body": "{c:${1:command to execute} ${2:arguments}}",
+		"description": "Executes the Carl-bot command in the payload. Block names are synonymous.\nTags are limited to using one command block per tag unless the server is marked as premium.\nTags in Carl-bot premium servers can use three command blocks per tag."
+	},
+
+	/* ----- Control/Conditional Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#control-blocks */
+
+	"if block (Conditional Blocks)": {
+		"prefix": "if",
+		"body": "{if(${1:boolean expression}):$then|$else}",
+		"description": "If the boolean equation evaluates to true, the block will result in the payload.\nIf the boolean equation evaluates to false, the block will result in the second portion of the payload after the | if provided."
+	},
+	// any / or
+	"any block (Conditional Blocks)": {
+		"prefix": "any",
+		"body": "{any(${1:boolean expression}|${2:boolean expression}):$then|$else}",
+		"description": "If any of the boolean equations provided evaluate to true, the block will result in the payload.\nIf all of the boolean equations evaluate to false, the block will result in the second portion of the payload after the | if provided.\nSeparate boolean equations inside the parameters with a pipe character |."
+	},
+	"or block (Conditional Blocks)": {
+		"prefix": "or",
+		"body": "{or(${1:boolean expression}|${2:boolean expression}):$then|$else}",
+		"description": "If any of the boolean equations provided evaluate to true, the block will result in the payload.\nIf all of the boolean equations evaluate to false, the block will result in the second portion of the payload after the | if provided.\nSeparate boolean equations inside the parameters with a pipe character |."
+	},
+	// all / and
+	"all block (Conditional Blocks)": {
+		"prefix": "all",
+		"body": "{all(${1:boolean expression}|${2:boolean expression}):$then|$else}",
+		"description": "If all of the boolean equations provided evaluate to true, the block will result in the payload.\nIf any of the boolean equations evaluate to false, the block will result in the second portion of the payload after the | if provided.\nSeparate boolean equations inside the parameters with a pipe character |."
+	},
+	"and block (Conditional Blocks)": {
+		"prefix": "and",
+		"body": "{and(${1:boolean expression}|${2:boolean expression}):$then|$else}",
+		"description": "If all of the boolean equations provided evaluate to true, the block will result in the payload.\nIf any of the boolean equations evaluate to false, the block will result in the second portion of the payload after the | if provided.\nSeparate boolean equations inside the parameters with a pipe character |."
+	},
+
+	"break block (Conditional Blocks)": {
+		"prefix": "break",
+		"body": "{break(${1:boolean equation}):${2:then}}",
+		"description": "If the boolean equation evaluates to true, the tag's output will ONLY be the payload of this block.\nHowever, Carl-bot commands in command blocks will still execute, and if an embed is defined in the tag's attached embed builder, it will still send."
+	},
+
+	/* ----- Data Storage & Parsing -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#data-storage-parsing */
+
+		/* ----- Variable Assignment Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#variable-assignment-blocks */
+
+		"var - Variable Assignment (Data Storage & Parsing)": {
+			"prefix": "var",
+			"body": "{=($name):$content}",
+			"description": "Creates a variable with the given name and content. Block names are synonymous."
+		},
+		"let - Variable Assignment (Data Storage & Parsing)": {
+			"prefix": "let",
+			"body": "{=($name):$content}",
+			"description": "Creates a variable with the given name and content. Block names are synonymous."
+		},
+
+		"Variable Parsing (Data Storage & Parsing)": {
+			"prefix": "parsing",
+			"body": "{${1:variable}(${2:position})${3::character delimiter (optional)}}",
+			"description": "Parses the variable at, up to, from to a certain position and eventually up to a character delimiter (not inclusive)."
+		},
+
+		/* ----- List & Cycle Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#list-cycle-blocks */
+
+		"list block (Data Storage & Parsing)": {
+			"prefix": "list",
+			"body": "{list(${1:index}):${2:element~element~element}}",
+			"description": "Returns the element in the payload the corresponds to the index value in the parameters. Block is null if the index is out of bounds."
+		},
+		"cycle block (Data Storage and Parsing)": {
+			"prefix": "cycle",
+			"body": "{cycle(${1:index}):${2:element~element~element}}",
+			"description": "Returns the element in the payload the corresponds to the index value in the parameters. Loops around if the index is out of bounds."
+		},
+
+		/* ----- Index Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#index-blocks */
+
+		"index block (Data Storage & Parsing)": {
+			"prefix": "index",
+			"body": "{index(${1:element}):${2:list of elements}}",
+			"description": "Returns the index value of the element in the parameters for the content in the payload."
+		},
+
+		/* ----- Membership Test Operations -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#membership-test-operations */
+
+		"in block (Membership Test Operations)": {
+			"prefix": "in",
+			"body": "{in(${1:substring to find}):${2:string}}",
+			"description": "Checks the payload for the presence of the parameter in the payload. Returns true if found or false if not."
+		},
+
+		"contains block (Membership Test Operations)": {
+			"prefix": "contains",
+			"body": "{contains(${1:element to find}):${2:string}}",
+			"description": "Checks the payload for the presence of the parameter as an element of the payload delimited by spaces.\nReturns true if found or false if not."
+		},
+
+	/* ----- Embed Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#embed-blocks */
+
+	"embed block": {
+		"prefix": "embed",
+		"body": "{embed($property):$value}",
+		"description": "A tag's attached embed builder MUST contain some content set via the dashboard before an embed block will \"work\" to modify values in it.\nTags created by command line alone will not display an embed even if these embed blocks are present.\nAvailable Properties: title, url, description, color, timestamp (with \"now\" as its value)"
+	},
+
+	/* ----- Manipulation Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#manipulation-blocks */
+
+		/* ----- Ordinal Abbreviation Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#ordinal-abbreviation-blocks */
+
+		"ord block (Manipulation Blocks)": {
+			"prefix": "ord",
+			"body": "{ord:${1:math block or number}}",
+			"description": "Returns the number in the payload with the correct Ordinal Abbreviation following it. (Puts a comma every 3 digital place, and \"st\" after 1, \"nd\" after 2, etc."
+		},
+
+		/* ----- Case Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#case-blocks */
+
+		"lower block (Manipulation Blocks)": {
+			"prefix": "lower",
+			"body": "{lower:$string}",
+			"description": "Returns the payload in all lowercase."
+		},
+		"upper block (Manipulation Blocks)": {
+			"prefix": "upper",
+			"body": "{upper:$string}",
+			"description": "Returns the payload in all uppercase."
+		},
+
+		/* ----- Text Replacement Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#text-replacement-blocks */
+
+		"join block (Text Replacement Blocks)": {
+			"prefix": "join",
+			"body": "{join(${1:character to join with}):${2:var or string}}",
+			"description": "Replaces every space in the payload with the parameters.\n\nParameters must be set for these blocks, even if they are null. Cannot use the symbols \")\" or \"}\" as parameters."
+		},
+
+		"replace block (Text Replacement Blocks)": {
+			"prefix": "replace",
+			"body": "{replace(${1:to replace},${2:with}):${3:string}}",
+			"description": "Replaces every instance of the 1st string in the payload with 2nd string.\n\nParameters must be set for these blocks, even if they are null. If the 2nd parameter value for the replace block is null, the block will return the payload with every instance of the 1st parameter value removed. If the 1st parameter value for the replace block is null, the block will return the payload with the 2nd parameter value on each side of every character in the payload. Cannot use the symbol \",\" as the first parameter, nor just the symbols \")\" or \"}\" as any parameters."
+		},
+
+		"urlencode block (Text Replacement Blocks)": {
+			"prefix": "urlencode",
+			"body": "{urlencode:$string}",
+			"description": "The urlencode block encodes the payload into Percent-encoding so it can be included in a URL and understood by the browser of the user that clicked the link. Replaces spaces with %20 by default."
+		},
+		"urlencode+ block (Text Replacement Blocks)": {
+			"prefix": "urlencode+",
+			"body": "{urlencode(${1:character to replace spaces}):$string}",
+			"description": "The urlencode block encodes the payload into Percent-encoding so it can be included in a URL and understood by the browser of the user that clicked the link. Same as urlencode but with the ability to change the character used as spaces."
+		},
+
+	/* ----- Math Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#math-blocks */
+
+	"math block": {
+		"prefix": "math",
+		"body": "{m:${1:math equation}}",
+		"description": "Evaluates the mathematical operations in the payload in the correct order of operations and returns the result.\nBlock names are synonymous."
+	},
+
+	// Math Operations and functions
+	"trunc function (Math Blocks)": {
+		"prefix": "trunc",
+		"body": "trunc($equation)",
+		"description": "Truncates the equation to integer value (chops off decimals)."
+	},
+	"round function (Math Blocks)": {
+		"prefix": "round",
+		"body": "round($equation)",
+		"description": " Rounds the equation to the nearest whole number."
+	},
+	"abs function (Math Blocks)": {
+		"prefix": "abs",
+		"body": "abs($equation)",
+		"description": "Returns the absolute value of the equation. (Disregards its sign)"
+	},
+	"sin function (Math Blocks)": {
+		"prefix": "sin",
+		"body": "sin($equation)",
+		"description": "Returns the sine of x radians."
+	},
+	"cos function (Math Blocks)": {
+		"prefix": "cos",
+		"body": "cos($equation)",
+		"description": "Returns the cosine of x radians."
+	},
+	"tan function (Math Blocks)": {
+		"prefix": "tan",
+		"body": "tan($equation)",
+		"description": "Returns the tangent of x radians."
+	},
+	"exp function (Math Blocks)": {
+		"prefix": "exp",
+		"body": "exp($equation)",
+		"description": "Returns Euler's number raised to the power of x."
+	},
+	"sgn function (Math Blocks)": {
+		"prefix": "sgn",
+		"body": "sgn($equation)",
+		"description": "Returns the sign of x. For x>0 returns 1, for x=0 returns 0, for x<0 returns -1."
+	},
+	"log function (Math Blocks)": {
+		"prefix": "log",
+		"body": "log($equation)",
+		"description": "Returns the logarithm of x (base 10)."
+	},
+	"ln function (Math Blocks)": {
+		"prefix": "ln",
+		"body": "ln($equation)",
+		"description": "Returns the natural logarithm of x (base e)."
+	},
+	"log2 function (Math Blocks)": {
+		"prefix": "log2",
+		"body": "log2($equation)",
+		"description": "Returns the logarithm of x (base 2)."
+	},
+	
+	/* ----- RNG Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#rng-blocks */
+
+		/* ----- Random Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#random-blocks */
+		"rand block (RNG Blocks)": {
+			"prefix": "rand",
+			"body": "{#:${1:element~element~element}}",
+			"description": "Chooses a random value out of the list in the payload.\nBlock names are synonymous."
+		},
+
+		/* ----- Range Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#range-blocks */
+
+		"range block (RNG Blocks)": {
+			"prefix": "range",
+			"body": "{range:${1:1}-${2:max}}",
+			"description": "Returns a random whole number in the specified range."
+		},
+		"rangef block (RNG Blocks)": {
+			"prefix": "rangef",
+			"body": "{rangef:${1:1}-${2:max}}",
+			"description": "Returns a random number in the specified range with tenths place decimal numbers."
+		},
+
+		/* ----- 50/50 Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#5050-blocks */
+
+		"fifty-fifty block (RNG Blocks)": {
+			"prefix": "fifty",
+			"body": "{50:$payload}",
+			"description": "Has a 50% chance of returning the payload, and a 50% chance of being null.\nBlock names are synonymous."
+		},
+
+	/* ----- Time Blocks -----
+	https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#time-blocks */
+
+		/* ----- Strf Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#strf-blocks */
+
+		"strf block (Time Blocks)": {
+			"prefix": "strf",
+			"body": "{strf(${1:optional Datetime or Unix time}):${2:strf formatting codes/variables}}",
+			"description": "Returns the DateTime value listed in the parameters in the format described in the payload.\nAvailable variables can be found at http://strftime.org/ and http://man7.org/linux/man-pages/man3/strftime.3.html"
+		},
+
+		/* ----- Timedelta Blocks -----
+		https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#timedelta-blocks */
+
+		"timedelta/td block (Time Blocks)": {
+			"prefix": "td",
+			"body": "{td(${1:optional Datetime or Unix time}):${2:Datetime value or strf block}}"
+		}
+
+
+}
