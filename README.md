@@ -1,13 +1,13 @@
 # TagScript_VSCode
 Very useful files to directly highlight TagScript code and get IntelliSense (autocompletion) directly into VSCode!
 
-[Download VSCode Here](https://code.visualstudio.com/download)
+👉 [Download VSCode Here](https://code.visualstudio.com/download)
 
 ### VSCode Extension
 Add custom colors to any word or range of words/blocks in TagScript using the extension below!
 You can directly import my color profile/configuration using the JSON file in the files above.
 
-[Custom Color](https://marketplace.visualstudio.com/items?itemName=altrue.CustomColoring)
+👉 [Custom Color](https://marketplace.visualstudio.com/items?itemName=altrue.CustomColoring)
 
 Thank you Chelsie#2507 for this amazing discovery.
 
@@ -26,4 +26,4 @@ I'm also releasing it all on GitHub so you guys can contribute if you wish to! I
 
 Enjoy!
 
-*Want to support me financially? Consider becoming a Patron on [Patreon](https://www.patreon.com/asty_) to join my close community and get useful resources for what you enjoy doing!*
+👉 *Want to support me financially? Consider becoming a Patron on [Patreon](https://www.patreon.com/asty_) to join my close community and get useful resources for what you enjoy doing!*
