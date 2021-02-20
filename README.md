@@ -24,7 +24,7 @@ It even includes keywords to directly use **useful tips and code snippets made b
 Here's a little example on how to add a per-user cooldown to your tag in seconds:
 ![Adding a cooldown to your tag has never been that easy!](https://cdn.discordapp.com/attachments/522912772086956042/812488931177136148/2021-02-20_02-00-36.gif)
 
-I included **every single TagScript block**as well as all the math blocks referenced in the Documentation, along with their description, so you can know what any block does directly into VSCode while coding. I believe all this opens a better and brand new era for TagScript.
+I included **every single TagScript block** as well as all the math blocks referenced in the Documentation, along with their description, so you can know what any block does directly into VSCode while coding. I believe all this opens a better and brand new era for TagScript.
 
 I'm also releasing it all on GitHub so you guys can contribute if you wish to! I'm leaving the Pull Requests open for this repository, so anyone who's willing to suggest changes can.
 
