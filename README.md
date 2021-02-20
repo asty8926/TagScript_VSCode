@@ -6,6 +6,7 @@ Very useful files to directly highlight TagScript code and get IntelliSense (aut
 ### VSCode Extension
 Add custom colors to any word or range of words/blocks in TagScript using the extension below!
 You can directly import my color profile/configuration using the JSON file in the files above.
+
 [Custom Color](https://marketplace.visualstudio.com/items?itemName=altrue.CustomColoring)
 
 Thank you Chelsie#2507 for this amazing discovery.
