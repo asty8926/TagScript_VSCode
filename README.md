@@ -8,6 +8,7 @@ Add custom colors to any word or range of words/blocks in TagScript using the ex
 You can directly import my color profile/configuration using the JSON file in the files above.
 
 👉 [Custom Color](https://marketplace.visualstudio.com/items?itemName=altrue.CustomColoring)
+
 🎨 [Get my color profile](https://github.com/asty8926/TagScript_VSCode/blob/main/colorProfile.json)
 
 Special thanks to Chelsie#2507 for this amazing discovery.
