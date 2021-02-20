@@ -16,8 +16,13 @@ Wait no more, because I made it a thing using VSCode's User Snippets!
 
 It even includes keywords to directly use useful tips and code snippets made by the community, such as one to add a per-user cooldown to your tag, generate a random color, using the famous "Switch" method everyone talks about, and more!
 
+Here's a little example on how to add a per-user cooldown to your tag too easily:
 ![Adding a cooldown to your tag has never been that easy!](https://cdn.discordapp.com/attachments/522912772086956042/812488931177136148/2021-02-20_02-00-36.gif)
 
 I included every single TagScript block, as well as all the math blocks referenced in the Documentation, along with their description, so you can know what any block does directly into VSCode while coding. I believe all this opens a better and brand new era for TagScript.
 
 I'm also releasing it all on GitHub so you guys can contribute if you wish to! I'm leaving the Pull Requests open for this repository, so anyone who's willing to suggest changes can.
+
+Enjoy!
+
+*Want to support me financially? Consider becoming a Patron on [Patreon](https://www.patreon.com/asty_) to join my close community and get useful resources for what you enjoy doing!*
