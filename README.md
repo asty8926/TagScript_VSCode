@@ -15,6 +15,8 @@ Special thanks to Chelsie#2507 for this amazing discovery.
 I bet you've always dreamt of starting to type a block, and for your IDE to do the rest like in other programming languages.
 Wait no more, because I made it a thing using VSCode's User Snippets!
 
+👉 [IntelliSense File](https://github.com/asty8926/TagScript_VSCode/blob/main/TagScript.code-snippets)
+
 It even includes keywords to directly use useful tips and code snippets made by the community, such as one to add a per-user cooldown to your tag, generate a random color, using the famous "Switch" method everyone talks about, and more!
 
 Here's a little example on how to add a per-user cooldown to your tag in seconds:
