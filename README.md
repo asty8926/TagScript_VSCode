@@ -23,10 +23,15 @@ It even includes keywords to directly use **useful tips and code snippets made b
 
 ### How to use
 **1.** Download and open VSCode
+
 **2.** On the left menu, click on `Extensions`, search `Custom Coloring` by Altrue, click `Install`
+
 **3.** Open my `colorProfile.json` file, copy its text content
+
 **4.** In the extension settings, scroll down. Where it says "Preview a profile", paste the color profile content, click "Load Profile"
+
 **5.** Now you should notice at the bottom left of VSCode a button to switch profiles and disable/enable highlighting
+
 **6.** If you don't already have a folder on your computer where you store all your custom commands, create one. In that folder, create a subfolder called `.vscode` (with the period) and put the `TagScript.code-snippets` file inside of it
 
 Here's a little example on how to add a per-user cooldown to your tag in seconds:
