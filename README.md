@@ -34,6 +34,7 @@ It even includes keywords to directly use **useful tips and code snippets made b
 
 **6.** If you don't already have a folder on your computer where you store all your custom commands, create one. In that folder, create a subfolder called `.vscode` (with the period) and put the `TagScript.code-snippets` file inside of it
 
+### Demo
 Here's a little example on how to add a per-user cooldown to your tag in seconds:
 ![Adding a cooldown to your tag has never been that easy!](https://cdn.discordapp.com/attachments/522912772086956042/812488931177136148/2021-02-20_02-00-36.gif)
 
