@@ -103,8 +103,9 @@
 
 	"Block pings in tag arguments": {
 		"prefix": "noping",
-		"body": ["{break({in(<@):{args}}==true):Please don't try to ping people with this command.}"],
-		"description": "Blocks users from pinging any roles or other users using tag arguments"
+		"body": ["{=():}
+{{or({in(<@&):{args}}==true|{in(@here):{args}}==true|{in(@everyone):{args}}==true|{replace(!,):{in(<@{target(id)}>):{args}}}==true):blacklist:{server(id)}}}"],
+		"description": "Blocks users from pinging any roles or users using tag arguments"
 	},
 
 	/* ===== TAGSCRIPT ADVANCED USAGE BLOCKS (FROM DOCS) ===== */
