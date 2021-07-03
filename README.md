@@ -11,7 +11,7 @@ You can directly import my color profile/configuration using the JSON file in th
 
 🎨 [Get my color profile](https://github.com/asty8926/TagScript_VSCode/blob/main/colorProfile.json)
 
-Special thanks to Chelsie#2507 for this amazing discovery.
+Special thanks to Elise#7543 for this amazing discovery.
 
 ### IntelliSense/Autocompletion
 I bet you've always dreamt of starting to type a block, and for your IDE to do the rest like in other programming languages.
