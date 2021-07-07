@@ -101,6 +101,13 @@
 		"body": "{=(${1:u1}):{upper:${2:variable}}"
 	},
 
+	"Block pings in tag arguments": {
+		"prefix": "noping",
+		"body": ["{=():}
+{{or({in(<@&):{args}}==true|{in(@here):{args}}==true|{in(@everyone):{args}}==true|{replace(!,):{in(<@{target(id)}>):{args}}}==true):blacklist:{server(id)}}}"],
+		"description": "Blocks users from pinging any roles or users using tag arguments"
+	},
+
 	/* ===== TAGSCRIPT ADVANCED USAGE BLOCKS (FROM DOCS) ===== */
 
 	/* ----- Default Variables -----
