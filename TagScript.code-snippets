@@ -135,22 +135,22 @@
 
 	"user object (Discord Object Properties)": {
 		"prefix": "user",
-		"body": "{user($property)}",
+		"body": "{user(${1|avatar,icon,id,mention,created_at,joined_at,color,name,nick,proper,roleids,position|})}",
 		"description": "User object. Available properties:\navatar, icon, id, mention, created_at, joined_at, color, name, proper, roleids, position"
 	},
 	"target object (Discord Object Properties)": {
 		"prefix": "target",
-		"body": "{target($property)}",
+		"body": "{target(${1|avatar,icon,id,mention,created_at,joined_at,color,name,nick,proper,roleids,position|})}",
 		"description": "Target object. Available properties:\navatar, icon, id, mention, created_at, joined_at, color, name, proper, roleids, position"
 	},
 	"server object (Discord Object Properties)": {
 		"prefix": "server",
-		"body": "{server($property)}",
+		"body": "{server(${1|icon,id,name,owner,random,members,bots,roles,channels,created_at|})}",
 		"description": "Server object. Available properties:\nicon, id, owner, random, members, bots, roles, channels, created_at"
 	},
 	"channel object (Discord Object Properties)": {
 		"prefix": "channel",
-		"body": "{channel($property)}",
+		"body": "{channel(${1|id,name,topic,slowmode,position,mention|})}",
 		"description": "Channel object. Available properties:\nid, topic, slowmode, position, mention"
 	},
 
