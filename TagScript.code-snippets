@@ -333,7 +333,7 @@
 
 	"embed block": {
 		"prefix": "embed",
-		"body": "{embed(${1|title,url,description,color,timestamp|):$value}",
+		"body": "{embed(${1|title,url,description,color,timestamp|}):$value}",
 		"description": "A tag's attached embed builder MUST contain some content set via the dashboard before an embed block will \"work\" to modify values in it.\nTags created by command line alone will not display an embed even if these embed blocks are present.\nAvailable Properties: title, url, description, color, timestamp (with \"now\" as its value)"
 	},
 
